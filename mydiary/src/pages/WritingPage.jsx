@@ -3,7 +3,7 @@ import { db } from "../firebase.js";
 import { collection, addDoc,Timestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { PostContext, PostProvider } from "../context/ContextFile";
+import { PostContext } from "../context/ContextFile";
 
 const WritingPage = () => {
   const [title, setTitle] = useState("");
@@ -21,10 +21,10 @@ const WritingPage = () => {
         content:content,
         createdAt: Timestamp.fromDate(new Date())
       });
-      fetchPosts();
       console.log("alert이전");
       alert("글이 저장되었습니다!");
       console.log("alert이후");
+      fetchPosts();
       navigate("/read");
     } catch (error) {
       console.error("Error adding document: ", error);
@@ -33,7 +33,6 @@ const WritingPage = () => {
   };
 
   return (
-    <PostProvider>
     <Container>
       <Title>✍️ 글 작성</Title>
       <Form>
@@ -51,7 +50,6 @@ const WritingPage = () => {
         <SubmitButton type="submit" onClick={handleSubmit}>저장하기</SubmitButton>
       </Form>
     </Container>
-    </PostProvider>
   );
 };
 

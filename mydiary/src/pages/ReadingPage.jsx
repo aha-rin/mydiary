@@ -1,22 +1,21 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { PostContext, PostProvider } from "../context/ContextFile";
+import { PostContext } from "../context/ContextFile";
 
 const ReadingPage = () => {
   const {posts}=useContext(PostContext);
+  console.log("posts in ReadingPage: ",posts);
 
   return (
-    <PostProvider>
     <Container>
       <Title>📖 저장된 글</Title>
-      {posts.map((post) => (
-        <PostCard key={post.id}>
-          <PostTitle>{post.title}</PostTitle>
-          <PostContent>{post.content}</PostContent>
-        </PostCard>
+      {Object.keys(posts).map((key) => (
+      <PostCard key={key}>
+        <PostTitle>{posts[key].title}</PostTitle>
+        <PostContent>{posts[key].content}</PostContent>
+      </PostCard>
       ))}
     </Container>
-    </PostProvider>
   );
 };
 
