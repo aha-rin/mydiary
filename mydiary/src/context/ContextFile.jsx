@@ -17,7 +17,6 @@ export const PostProvider = ({ children }) => {
         ...doc.data(),
       }));
       setPosts(postList);
-      console.log("postList:",postList);
 
     } catch (error) {
       console.error("Error fetching posts: ", error);
@@ -28,7 +27,6 @@ export const PostProvider = ({ children }) => {
   // 최초 렌더링 시 데이터 받아오기
   useEffect(() => {
     fetchPosts(); 
-    console.log("posts:",posts);
   }, []);
 
   return (

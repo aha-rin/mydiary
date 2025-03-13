@@ -21,14 +21,12 @@ const WritingPage = () => {
         content:content,
         createdAt: Timestamp.fromDate(new Date())
       });
-      console.log("alert이전");
-      alert("글이 저장되었습니다!");
-      console.log("alert이후");
+      alert("글이 작성되었습니다!");
       fetchPosts();
       navigate("/read");
     } catch (error) {
       console.error("Error adding document: ", error);
-      alert("글 저장에 실패했습니다. 다시 시도해주세요.");
+      alert("글 작성에 실패했습니다. 다시 시도해주세요.");
     }
   };
 

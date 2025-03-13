@@ -4,7 +4,6 @@ import { PostContext } from "../context/ContextFile";
 
 const ReadingPage = () => {
   const {posts}=useContext(PostContext);
-  console.log("posts in ReadingPage: ",posts);
 
   return (
     <Container>
